@@ -1,0 +1,15 @@
+html {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+
+  background: #121214;
+
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  margin: 0.5rem;
+  padding: 0;
+  box-sizing: inherit;
+}
