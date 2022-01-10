@@ -14,7 +14,19 @@ export default function Calculator(){
     }
 
     function makeCalc() {
-      console.log("calculating...")
+      selectedValue.map((value) => {
+        if(value === '+')
+          console.log("sum ");
+        else if(value === '-')
+          console.log("sub ");
+        else if(value === '/')
+          console.log("div ");
+        else if(value === '*')
+          console.log("mult ");
+        else
+          console.log(value + "")
+      })
+      console.log("fazer o calculo...")
     }
 
 
@@ -93,7 +105,7 @@ export default function Calculator(){
         
         <button 
           className={styles.equalSignButton}
-          onClick={handleInput}
+          onClick={handleInput, makeCalc}
           // onClick={makeCalc}
           type="button" 
           value="=">
