@@ -5,26 +5,37 @@ import { useState } from 'react';
 export default function Calculator(){
 
     const [selectedValue, setSelectedValue] = useState([]);
+    const [result, setResult] = useState(0);
 
 
     function handleInput(e) {
       const currentValue = e.target.value;
-      setSelectedValue(oldArray => [...oldArray, currentValue])
+      setSelectedValue(oldArray => [...oldArray, currentValue]);
       console.log(selectedValue);
+    }
+
+    function isOperator(value) {
+      if(value === '+' || value === '-' || value === '/' || value === '*'
+        || value === '=' || value === 'all-clear')
+          return true;
+
+      return false;
+    }
+
+    function sum(value) {
+      setResult(result + parseInt(value));
+      console.log(`result is ${result} + ${value}`);
     }
 
     function makeCalc() {
       selectedValue.map((value) => {
-        if(value === '+')
-          console.log("sum ");
-        else if(value === '-')
-          console.log("sub ");
-        else if(value === '/')
-          console.log("div ");
-        else if(value === '*')
-          console.log("mult ");
-        else
-          console.log(value + "")
+        if(value === '+') {
+          const nextDigit = selectedValue[(selectedValue.indexOf(value) + 1)];
+          sum(nextDigit);
+          //console.log(`result is ${result}`);
+        }
+       
+
       })
       console.log("fazer o calculo...")
     }
